@@ -22,3 +22,38 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+
+.config(function($stateProvider,$urlRouterProvider){
+	$stateProvider
+	
+	.state('login',{
+		url: '/login',
+		templateUrl:'templates/login.html'
+		
+	})
+	
+	.state('cadastro',{
+		url: '/cadastro',
+		templateUrl:'templates/cadastro.html'
+		
+	})
+	
+	
+	$urlRouterProvider.otherwise('/login');
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
