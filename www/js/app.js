@@ -28,20 +28,61 @@ angular.module('starter', ['ionic','starter.controllers'])
 	
 	$stateProvider
 	
-	.state('login',{
-		controller:'loginController',
+	.state('app',{
+		url: '/app',
+		abstract:true,
+		templateUrl:'templates/menu.html',
+		controller:'AppCtrl'
+		
+		
+	})
+	
+	.state('app.login',{
+		
 		url: '/login',
-		templateUrl:'templates/login.html'
+		views: {
+        'menuContent': {
+        templateUrl: 'templates/login.html',
+		controller:'loginController'
+      }
+    }
 		
 	})
 	
-	.state('cadastro',{
+	.state('app.cadastro',{
 		url: '/cadastro',
-		templateUrl:'templates/cadastro.html'
+		views: {
+        'menuContent': {
+        templateUrl: 'templates/cadastro.html'
+		}
+	}
 		
 	})
 	
-	$urlRouterProvider.otherwise('/login');
+	.state('app.listarAviso',{
+		controller:'listarAvisoController',
+		url: '/listarAviso',
+		views: {
+        'menuContent': {
+        templateUrl: 'templates/listarAviso.html'
+		}
+	}
+		
+	})
+	
+	.state('app.pesquisarAviso',{
+		controller:'listarAvisoController',
+		url: '/pesquisarAviso',
+		views: {
+        'menuContent': {
+        templateUrl: 'templates/pesquisarAviso.html'
+		}
+	}
+		
+	})
+		
+	//$urlRouterProvider.otherwise('/login');
+	$urlRouterProvider.otherwise('/app/login');
 	
 });
 

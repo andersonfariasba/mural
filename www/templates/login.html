@@ -1,9 +1,10 @@
- <ion-view>
+ <ion-view view-title="Login de Acesso">
   
   <ion-pane>
    
    <ion-header-bar class="bar-positive">
-	<button class="button button-icon icon ion-navicon"></button>
+	<!--<button class="button button-icon icon ion-navicon"></button>-->
+
 	<h1 class="title">Mural Virtual</h1>
 	<!--<button class="button button-clear"id="cadastrar" ng-click="cadastrar">Cadastrar</button>-->
 	<!--<button class="button button-icon ion-compose" ng-click="cadastrar">Cadastrar</button>-->
@@ -15,7 +16,7 @@
     
 	
 	<ion-content class="padding">
-		<h2>Acessar Mural</h2>
+		<h3>Acessar Mural</h3>
 
 		
 		<ion-list>
@@ -34,7 +35,7 @@
 		</ion-list>
 		
 		<div>
-			<button class="button button-block button-positive" ng-click="btCadastrar()">
+			<button class="button button-block button-positive" ng-click="btLogar()">
 				Entrar
 			</button>
 		</div>
@@ -42,7 +43,7 @@
 	</ion-content>
 	
 	<ion-footer-bar class="bar-positive">
-		<div class="title"><a class="button button-icon ion-compose" ui-sref="cadastro">Novo Cadastro</a></div>
+		<div class="title"><a class="button button-icon ion-compose" href="#/app/cadastro">Novo Cadastro</a></div>
 	<!--<div class="button-bar">
 	 <button class="button button-positive">Botão 1</button>
 	  <button class="button button-positive">Botão 2</button>

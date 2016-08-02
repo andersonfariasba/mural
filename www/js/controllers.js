@@ -1,16 +1,27 @@
 angular.module('starter.controllers', [])
 
-
 .controller('loginController', function($scope,$state) {
-  //alert('teste');
- // $scope.nome = 'Teste!'
- 
- //exemplo de ação ao botão
- $scope.btCadastrar = function(){
-	$state.go('cadastro');
+
+ $scope.btLogar = function(){
+	$state.go('app.listarAviso');
  }
   
+ 
+})
+
+
+.controller('AppCtrl', function($scope) {
+//Area de menu caso tenha alguma interação	
+})
+	
+.controller('listarAvisoController', function($scope,$state){
+	
+	$scope.btPesquisarAviso = function(){
+	  $state.go('app.pesquisarAviso');	
+	}
+	
 });
+
 
 
 
