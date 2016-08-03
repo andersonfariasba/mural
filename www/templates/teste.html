@@ -1,12 +1,50 @@
+ <ion-view>
+   <ion-pane>
+<ion-content class="padding">
+ 		
+		<div class="rows">
+		<table class="table table-condensed" width="30%">
+  <thead>
+    <tr>
+      <td>CÓDIGO</td>
+      <td>AREA</td>
+     
+    </tr>
+  </thead>
+  <tbody>
+  
+   <tr ng-repeat="area in areas">
+      <td>{{area.id_area}}</td>
+      <td>{{area.id_area}}</td>
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ion-item class="item-input item-select padding">
+		 <div class="input-label">
+			Área de Conhecimento
+		 </div>
+		 <select ng-model="selectedItem" ng-options="area.descricao for area in areas">
+        </select>
+
+		</ion-item>
+ </ion-content>
+   </ion-pane>
+   
+ </ion-view>
+
+
+
+  <!--
  <ion-view view-title="Mural Virtual">
   
   <ion-pane>
    
    <ion-header-bar class="bar-positive">
 	
-	<!--<h1 class="title">Mural Virtual</h1>-->
-	<!--<button class="button button-clear"id="cadastrar">Cadastrar</button>-->
-   
+	  
    </ion-header-bar>
    
   
@@ -30,29 +68,29 @@
 		 
 		</ion-list>
 						
-		<!--<ion-item class="item-input item-select padding">
+		<ion-item class="item-input item-select padding">
 		 <div class="input-label">
 			Área de Conhecimento
 		 </div>
-		  <select  ng-model="optionSelected" ng-change="selectUpdated(optionSelected)">
-		     <option value="5">Selecione...</option>
+		  <select ng-model="user.id_area">
+		    <option>Selecione...</option>
 			<option value="2">Humanas</option>
 			<option value="3">Exatas</option>
 			<option value="4">Pós-Graduação</option>
 			</select>
 
-		</ion-item>-->
+		</ion-item>
 		
 			<ion-item class="item-input item-select padding">
 		 <div class="input-label">
-			Área de Conhecimento
+			TESTE
 		 </div>
-		 
+		  <select ng-repeat="student in students">>
+		   
+			<option>{{student.Name}}</option>
 			
-		<select ng-model="user.id_area" ng-options="area.descricao for area in areas">
-        </select>
 			
-		
+			</select>
 
 		</ion-item>
 				
@@ -70,12 +108,9 @@
 	
 	<ion-footer-bar class="bar-positive">
 		<div class="title">Unidade: Costa Azul</div>
-	<!--<div class="button-bar">
-	 <button class="button button-positive">Botão 1</button>
-	  <button class="button button-positive">Botão 2</button>
-	   <button class="button button-positive">Botão 3</button>
-	</div>-->
+
 	</ion-footer-bar>
 
 	</ion-pane>
 </ion-view>
+-->
