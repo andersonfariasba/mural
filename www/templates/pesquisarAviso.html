@@ -13,7 +13,7 @@
 		<h5>Informe Data e Area de Conhecimento.</h5>
 		
 		<ion-list>
-		 
+      <form method="post" action="">
 		<label class="item item-input item-floating-label">
 			<span class="input-label">Data</span>
 			<input type="date" name="data" placeholder="Data" id="data">
@@ -27,25 +27,20 @@
 		 <div class="input-label">
 			Área de Conhecimento
 		 </div>
-		  <select>
-		    <option>Selecione...</option>
-			<option>Humanas</option>
-			<option>Exatas</option>
-			<option>Pós-Graduação</option>
-			</select>
+		 <select ng-model="user.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 		</ion-item>
 				
 		
 		<div>
 			<button class="button button-block button-positive ion-search" ng-click="btPesquisarAviso()">
-				Pesquisar
+				Pesquisar{{user.id_area}}
 			</button>
 		</div>
-	
+	</form>
 	</ion-content>
 	
 	<ion-footer-bar class="bar-positive">
-		<div class="title">Unidade: Costa Azul</div>
+		<div class="title"><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
 	<!--<div class="button-bar">
 	 <button class="button button-positive">Botão 1</button>
 	  <button class="button button-positive">Botão 2</button>

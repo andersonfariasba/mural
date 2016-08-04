@@ -1,24 +1,43 @@
- <ion-view>
+ <ion-view view-title="Exibir Aviso">
    <ion-pane>
 <ion-content class="padding">
  		
-		<div class="rows">
-		 VISUALIZAR {{titulo}}
-		
-		</div>
+				
+		<div class="list card" ng-repeat="informe in informes track by informe.id_informe">
 
-<!--
-<ion-item class="item-input item-select padding">
-		 <div class="input-label">
-			Área de Conhecimento
-		 </div>
-		 <select ng-model="selectedItem" ng-options="area.descricao for area in areas">
-        </select>
+  <div class="item item-body">
+   
+    <h2>{{informe.titulo}}</h2>
+    <p>{{informe.data_publicacao}}</p>
+	
+	
+  </div>
 
-		</ion-item>-->
+  <div class="item item-body">
+    
+    <p>{{informe.texto}}</p>
+    <!--<p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>-->
+  </div>
+
+</div>
 		
 		
  </ion-content>
+ 
+ <ion-footer-bar class="bar-positive">
+		<div class="title"><a class="button button-icon ion-search" href="#/app/pesquisarAviso"> Pesquisar</a><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
+		
+		<!--<div class="button-bar">
+	 <button class="button button-positive">Botão 1</button>
+	  <button class="button button-positive">Botão 2</button>
+	   <button class="button button-positive">Botão 3</button>
+	</div>-->
+	</ion-footer-bar>
+ 
+ 
    </ion-pane>
    
  </ion-view>

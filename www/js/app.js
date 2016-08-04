@@ -98,11 +98,12 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	
 	
 	.state('app.pesquisarAviso',{
-		controller:'listarAvisoController',
+		
 		url: '/pesquisarAviso',
 		views: {
         'menuContent': {
-        templateUrl: 'templates/pesquisarAviso.html'
+			templateUrl: 'templates/pesquisarAviso.html',
+			controller:'pesquisarAvisoController'
 		}
 	}
 		

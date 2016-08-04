@@ -23,19 +23,19 @@
 		
 		<label class="item item-input item-floating-label">
 			<span class="input-label">Login</span>
-			<input type="text" name="login" placeholder="Login" id="login">
+			<input type="text" name="login_entrada" placeholder="Login" id="login" ng-model="user.login_entrada">
 		 </label>
 		 
 		  <label class="item item-input item-floating-label">
 			<span class="input-label">Senha  </span>
-			<input type="password" name="senha" placeholder="Senha" id="senha">
+			<input type="password" name="senha_entrada" placeholder="Senha" id="senha" ng-model="user.senha_entrada">
 		 </label>
 		
 		 
 		</ion-list>
 		
 		<div>
-			<button class="button button-block button-positive" ng-click="btLogar()">
+			<button class="button button-block button-positive ion-android-done" ng-click="btLogar(user)">
 				Entrar
 			</button>
 		</div>
@@ -43,7 +43,7 @@
 	</ion-content>
 	
 	<ion-footer-bar class="bar-positive">
-		<div class="title"><a class="button button-icon ion-compose" href="#/app/cadastro">Novo Cadastro</a></div>
+		<div class="title"><a class="button button-icon ion-person-add" href="#/app/cadastro"></a></div>
 	<!--<div class="button-bar">
 	 <button class="button button-positive">Botão 1</button>
 	  <button class="button button-positive">Botão 2</button>
