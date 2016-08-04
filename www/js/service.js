@@ -14,4 +14,21 @@ angular.module('service.api', [])
 		}
 
 	};
+
+	 /*return $resource("./php/notes/:id", {}, {
+        save : { // redefine save action defaults
+            method : 'POST',
+            url : "./php/notes", // I dont want the id in the url
+            transformRequest: function(data, headers){
+                console.log(headers);
+                headers = angular.extend({}, headers, {'Content-Type': 'application/json'});
+                console.log(headers);
+                console.log(data);
+                console.log(angular.toJson(data));
+                return angular.toJson(data); // this will go in the body request
+            }               
+        }
+    });*/
+
+
 })

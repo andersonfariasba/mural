@@ -42,23 +42,40 @@ angular.module('starter.controllers', [])
 //Controller para cadastro do aluno
 .controller('cadastroController',function($scope,$http){
 
-	//Lista area de conhecimento
-	$http.get('http://localhost:8080/api_estacio/api/index.php/listArea').success( function(data) {
+	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
+	$http.get('http://localhost/api/api/index.php/listArea').success( function(data) {
 	$scope.areas = data;
 						
    })
+    //final listagem
 	
 	//Ação de Cadastrar
 	$scope.add_new = function(user) {
+
+		//alert('teste');
+		var parameter = JSON.stringify(user);
+		//console.log(parameter);
+		//alert('teste');
 		
-		alert(user.id_area);
-		 
+	//var parameter = JSON.stringify({type:"user", username:user_email, password:user_password});
+    //OBS: LEMBRAR DE ALTERAR A URL NA CAP
+    $http.post('http://localhost/api/api/index.php/add', parameter).
+    success(function(data, status, headers, config) {
+        // this callback will be called asynchronously
+        // when the response is available
+               console.log(data);
+      }).
+      error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
+	
+
 	}
 	
-	$scope.selectUpdated = function(optionSelected) {
-   
-    alert(optionSelected);
-};
+	$scope.selectAction = function() {
+     console.log($scope.myOption);
+	};
 	
 	
 })
