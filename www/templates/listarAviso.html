@@ -12,35 +12,18 @@
     
 	<ion-content class="padding">
 	
-	
-		<h1>Avisos</h1>
+	 <!--<h1>Avisos</h1>-->
 		<ion-list>
+		 <a href="#/app/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
+		 		 
+		  
+		  <!--<ion-item class="item-icon-left" ng-repeat="informe in informes track by informe.id_informe">-->
+		   <i class="icon ion-ios-arrow-right"></i>
+		    <h2>{{informe.titulo}}</h2>
+			<p>{{informe.data_publicacao}}</p>
+		<!--</ion-item>-->
+		  </a>
 		 
-  		 
-		  
-		   <ion-item class="item-icon-left">
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>30/07/2016 - Notas AV2 Disponível</h2>
-			<p>Nota da AV2 já estão disponíveis</p>
-		  </ion-item>
-		  
-		  <ion-item class="item-icon-left">
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>30/07/2016 - Notas AV2 Disponível</h2>
-			<p>Nota da AV2 já estão disponíveis</p>
-		  </ion-item>
-		  
-		  <ion-item class="item-icon-left">
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>30/07/2016 - Notas AV2 Disponível</h2>
-			<p>Nota da AV2 já estão disponíveis</p>
-		  </ion-item>
-		  
-		  <ion-item class="item-icon-left">
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>30/07/2016 - Notas AV2 Disponível</h2>
-			<p>Nota da AV2 já estão disponíveis</p>
-		  </ion-item>
 		  
 		
 		  

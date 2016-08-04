@@ -9,41 +9,32 @@ angular.module('starter.controllers', [])
  
 })
 
-
 .controller('AppCtrl', function($scope) {
 //Area de menu caso tenha alguma interação	
-
-
 })
 
+//.controller('testeController', function ($scope, Api) {
 
-.controller('testeController', function ($scope, Api) {
+.controller('testeController', function ($scope, $http) {
 
-	Api.getApi().then(function(result){
+    var id_area = 5;
+	$http.get('http://localhost:8080/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
+		$scope.informes = data;
+	})
+	
+	
+	/*Api.getApi().then(function(result){
 		console.log(result);
 		$scope.areas = result.data;
-	})
+	})*/
 
 })
 
-
-//.controller('testeController', function($scope,$http) {
-
-//console.log("inicio atualizado");
-
-//$scope.areas = [{descricao: 'one', id_area: 30 },{ descricao: 'two', id_area: 27 },{ descricao: 'three', id_area: 50 }];
-//console.log(JSON.stringify($scope.areas));
-
-//})
-
-
-
-
 //Controller para cadastro do aluno
-.controller('cadastroController',function($scope,$http){
+.controller('cadastroController',function($scope,$state,$http){
 
 	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
-	$http.get('http://localhost/api/api/index.php/listArea').success( function(data) {
+	$http.get('http://localhost:8080/api/api/index.php/listArea').success( function(data) {
 	$scope.areas = data;
 						
    })
@@ -59,19 +50,24 @@ angular.module('starter.controllers', [])
 		
 	//var parameter = JSON.stringify({type:"user", username:user_email, password:user_password});
     //OBS: LEMBRAR DE ALTERAR A URL NA CAP
-    $http.post('http://localhost/api/api/index.php/add', parameter).
+    $http.post('http://localhost:8080/api/api/index.php/add', parameter).
     success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
-               console.log(data);
+		//$state.go('app.login');
+        //console.log(data);
       }).
       error(function(data, status, headers, config) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
+	  
+	  $state.go('app.login');
+	  
 	
 
 	}
+
 	
 	$scope.selectAction = function() {
      console.log($scope.myOption);
@@ -79,14 +75,35 @@ angular.module('starter.controllers', [])
 	
 	
 })
+
+//Visualizar Aviso
+.controller('visualizarAvisoController', function($scope,$state,$http){
 	
-.controller('listarAvisoController', function($scope,$state){
+	var id_informe = $state.params.id_informe;
 	
+	$http.get('http://localhost:8080/api/api/index.php/detalheInforme?id_informe='+id_informe).success(function(data){
+		$scope.informe = data;
+
+	})
+	
+})
+
+//lisar Aviso	
+.controller('listarAvisoController', function($scope,$state,$http){
+	var id_area = 5;
+	$http.get('http://localhost:8080/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
+		$scope.informes = data;
+	})
+	
+		
 	$scope.btPesquisarAviso = function(){
 	  $state.go('app.pesquisarAviso');	
 	}
+
 	
 });
+
+
 
 
 

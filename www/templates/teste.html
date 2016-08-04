@@ -3,25 +3,36 @@
 <ion-content class="padding">
  		
 		<div class="rows">
-		<table class="table table-condensed" width="30%">
+		
+		 <ion-item class="item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
+		   <i class="icon ion-ios-arrow-right"></i>
+		    <h2>{{informe.titulo}}</h2>
+			<p>{{informe.data_publicacao}}</p>
+		  </ion-item>
+		  
+		  
+<!--<table class="table table-condensed" width="30%">
   <thead>
     <tr>
-      <td>CÓDIGO</td>
-      <td>AREA</td>
+       <td>DATA</td>
+	  <td>CÓDIGO</td>
+      <td>TÍTULO</td>
      
     </tr>
   </thead>
   <tbody>
   
-   <tr ng-repeat="area in areas">
-      <td>{{area.id_area}}</td>
-      <td>{{area.id_area}}</td>
+   <tr ng-repeat="informe in informes">
+      <td>{{informe.data_publicacao}}</td>
+	  <td>{{informe.id_informe}}</td>
+      <td>{{informe.titulo}}</td>
       
     </tr>
   </tbody>
-</table>
-</div>
+</table>-->
 
+</div>
+<!--
 <ion-item class="item-input item-select padding">
 		 <div class="input-label">
 			Área de Conhecimento
@@ -29,7 +40,9 @@
 		 <select ng-model="selectedItem" ng-options="area.descricao for area in areas">
         </select>
 
-		</ion-item>
+		</ion-item>-->
+		
+		
  </ion-content>
    </ion-pane>
    
