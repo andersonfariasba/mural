@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
 	//alert("Login = "+login+" Senha =  "+senha);
 	var parameter = JSON.stringify(user);
 
-	$http.post('http://localhost:8080/api/api/index.php/login', parameter).
+	$http.post('http://localhost/api/api/index.php/login', parameter).
     success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
 
     var id_area = localStorage.getItem('id_area');
 	//var id_area = 5;
-	$http.get('http://localhost:8080/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
+	$http.get('http://localhost/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
 		$scope.informes = data;
 	})
 	
@@ -61,7 +61,7 @@ angular.module('starter.controllers', [])
 .controller('cadastroController',function($scope,$state,$http){
 
 	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
-	$http.get('http://localhost:8080/api/api/index.php/listArea').success( function(data) {
+	$http.get('http://localhost/api/api/index.php/listArea').success( function(data) {
 	$scope.areas = data;
 						
    })
@@ -77,7 +77,7 @@ angular.module('starter.controllers', [])
 		
 	//var parameter = JSON.stringify({type:"user", username:user_email, password:user_password});
     //OBS: LEMBRAR DE ALTERAR A URL NA CAP
-    $http.post('http://localhost:8080/api/api/index.php/add', parameter).
+    $http.post('http://localhost/api/api/index.php/add', parameter).
     success(function(data, status, headers, config) {
         // this callback will be called asynchronously
         // when the response is available
@@ -108,7 +108,7 @@ angular.module('starter.controllers', [])
 	
 	var id_informe = $state.params.id_informe;
 	
-	$http.get('http://localhost:8080/api/api/index.php/detalheInforme?id_informe='+id_informe).success(function(data){
+	$http.get('http://localhost/api/api/index.php/detalheInforme?id_informe='+id_informe).success(function(data){
 		$scope.informes = data;
 
 	})
@@ -116,19 +116,38 @@ angular.module('starter.controllers', [])
 })
 
 .controller('pesquisarAvisoController',function($scope,$state,$http){
+
+	$scope.guardarValor = function() {
+       $scope.PreferredLanguage = this.PreferredLanguage;
+   };
 	
+
 	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
-	$http.get('http://localhost:8080/api/api/index.php/listArea').success( function(data) {
+	$http.get('http://localhost/api/api/index.php/listArea').success( function(data) {
 	$scope.areas = data;
 						
    })
+
 	
-	$scope.btPesquisarAviso = function(area){
+	$scope.btPesquisarAviso = function(){
+		var id_area = $scope.PreferredLanguage;
+			
+		//alert(id_area);
+
+		$http.get('http://localhost/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
+		$scope.informes = data;
+		$state.go('app.filtragemAviso');
 		
-		var id_area = area.id_area;
-		alert(id_area)
+	})
+
+
+
+
+
+
 		
 	}
+    
 	
 })
 
@@ -138,7 +157,7 @@ angular.module('starter.controllers', [])
 .controller('listarAvisoController', function($scope,$state,$http){
 	//var id_area = 5;
 	 var id_area = localStorage.getItem('id_area');
-	$http.get('http://localhost:8080/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
+	$http.get('http://localhost/api/api/index.php/getInformeAluno?id_area='+id_area).success(function(data){
 		$scope.informes = data;
 	})
 	

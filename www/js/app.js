@@ -82,6 +82,19 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	}
 		
 	})
+
+	.state('app.filtragemAviso',{
+		
+		url: '/filtragemAviso',
+		views: {
+        'menuContent': {
+        templateUrl: 'templates/listarAviso.html',
+       //controller:'listarAvisoController'
+		controller:'pesquisarAvisoController'
+		}
+	}
+		
+	})
 	
 	
 	.state('app.visualizarAviso',{
@@ -103,7 +116,7 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 		views: {
         'menuContent': {
 			templateUrl: 'templates/pesquisarAviso.html',
-			controller:'pesquisarAvisoController'
+			 controller:'pesquisarAvisoController'
 		}
 	}
 		
