@@ -13,10 +13,13 @@
 		<h5>Informe Data e Area de Conhecimento.</h5>
 		
 		<ion-list>
-      <form method="post" action="">
+      <!--<form method="post" action="">-->
+	
+	<form ng-submit="submit()">
 		<label class="item item-input item-floating-label">
 			<span class="input-label">Data</span>
-			<input type="date" name="data" placeholder="Data" id="data" ng-model="aviso.data">
+			<input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
+			
 		 </label>
 		 
 		 		 
@@ -25,18 +28,32 @@
 			
 		<ion-item class="item-input item-select padding">
 		 <div class="input-label">
-			Área de Conhecimento
+			Área de Ensino
 		 </div>
-		 <!--<select ng-model="aviso.id_area" ng-change="selectUpdated(optionSelected)" ng-options="obj.id_area as obj.descricao for obj in areas"></select>-->
-		 <select ng-model="PreferredLanguage" ng-options="area.id_area as area.descricao for area in areas" id="LanguageListSelect" name="LanguageListSelect" ng-change="guardarValor()">
-</select>
+		
+			
+			 <select ng-model="data.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 
 		</ion-item>
-				
+		
+		 <!--<ion-list ng-repeat="area in areas">
+		 <ion-radio ng-model="aviso.id_area" ng-value="area.id_area">{{area.descricao}}</ion-radio>
+		 
+		</ion-list>-->
+		
+		
+		
+		<!--<ion-item class="item-input item-select padding">
+		<label class="item item-input item-floating-label">
+			<span class="input-label">ID</span>
+			<input type="text" name="id" id="id" ng-model="id"  ng-focus="focus=true" ng-blur="focus=false" ng-value="{{PreferredLanguage}}">
+		 </label>
+		</ion-item>-->
 		
 		<div>
-			<button class="button button-block button-positive ion-search" ng-click="btPesquisarAviso(aviso)">
-				Pesquisar {{PreferredLanguage}}
+			<!--<button class="button button-block button-positive ion-search" ng-click="btPesquisarAviso(aviso)">-->
+			<button class="button button-block button-positive ion-search">
+				Pesquisar  <!--{{PreferredLanguage}}-->
 			</button>
 		</div>
 	</form>

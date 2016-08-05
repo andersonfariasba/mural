@@ -82,15 +82,17 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	}
 		
 	})
+	
+	
 
 	.state('app.filtragemAviso',{
 		
 		url: '/filtragemAviso',
 		views: {
         'menuContent': {
-        templateUrl: 'templates/listarAviso.html',
-       //controller:'listarAvisoController'
-		controller:'pesquisarAvisoController'
+        templateUrl: 'templates/listTeste.html',
+			//controller:'listarAvisoController'
+			controller:'pesquisarAvisoController'
 		}
 	}
 		
