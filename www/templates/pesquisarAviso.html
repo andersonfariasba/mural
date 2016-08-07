@@ -10,21 +10,30 @@
    
       
 	<ion-content class="padding">
-		<h5>Informe Data e Area de Conhecimento.</h5>
+		<!--<h5>Informe Data e Area de Conhecimento.</h5>-
+		<div class="item item-divider">
+			 Resultado da Busca
+		</div>-->
 		
 		<ion-list>
       <!--<form method="post" action="">-->
 	
 	<form ng-submit="submit()">
-		<label class="item item-input item-floating-label">
+		<!--<label class="item item-input item-floating-label">
 			<span class="input-label">Data</span>
 			<input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
 			
+		 </label>-->
+
+		 <label class="item item-input item-stacked-label">
+		  <span class="input-label">Data</span>
+		  <input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
 		 </label>
 		 
 		 		 
 	</ion-list>
-		
+
+
 			
 		<ion-item class="item-input item-select padding">
 		 <div class="input-label">
@@ -35,6 +44,10 @@
 			 <select ng-model="data.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 
 		</ion-item>
+
+       
+
+	
 		
 		 <!--<ion-list ng-repeat="area in areas">
 		 <ion-radio ng-model="aviso.id_area" ng-value="area.id_area">{{area.descricao}}</ion-radio>
@@ -53,15 +66,44 @@
 		<div>
 			<!--<button class="button button-block button-positive ion-search" ng-click="btPesquisarAviso(aviso)">-->
 			<button class="button button-block button-positive ion-search">
-				Pesquisar  <!--{{PreferredLanguage}}-->
+				<strong>Pesquisar</strong>  <!--{{PreferredLanguage}}-->
 			</button>
 		</div>
+
+
+		<div class="item item-divider">
+			 Resultado da Busca
+		</div>
+
+	<ion-list>
+		 <a href="#/app/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
+		 		 
+		  
+		  <!--<ion-item class="item-icon-left" ng-repeat="informe in informes track by informe.id_informe">-->
+		   <i class="icon ion-ios-arrow-right"></i>
+		    <h2>{{informe.titulo}}</h2>
+			<p>{{informe.data_publicacao}}</p>
+			<span class="item-note">{{informe.descricao}}</span>
+		<!--</ion-item>-->
+		  </a>
+		 
+		  
+		
+		  
+		</ion-list>
+	
+
+
 	</form>
 	</ion-content>
 	
 	<ion-footer-bar class="bar-positive">
-		<div class="title"><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
-	<!--<div class="button-bar">
+		<div class="button-bar">
+ 			<a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"><strong>Meus Avisos</strong></a>
+		</div>
+
+   <!--<div class="title"><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
+	<div class="button-bar">
 	 <button class="button button-positive">Botão 1</button>
 	  <button class="button button-positive">Botão 2</button>
 	   <button class="button button-positive">Botão 3</button>

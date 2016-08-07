@@ -8,19 +8,21 @@
   <div class="item item-body">
    
     <h2>{{informe.titulo}}</h2>
-    <p>{{informe.data_publicacao}}</p>
+    <h6>{{informe.data_publicacao}}</h6>
+
+     <p>{{informe.texto}}</p>
 	
 	
   </div>
 
-  <div class="item item-body">
+  <!--<div class="item item-body">
     
-    <p>{{informe.texto}}</p>
+   
     <!--<p>
       <a href="#" class="subdued">1 Like</a>
       <a href="#" class="subdued">5 Comments</a>
-    </p>-->
-  </div>
+    </p>-
+  </div>-->
 
 </div>
 		
@@ -28,9 +30,14 @@
  </ion-content>
  
  <ion-footer-bar class="bar-positive">
-		<div class="title"><a class="button button-icon ion-search" href="#/app/pesquisarAviso"> Pesquisar</a><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
+ 	<div class="button-bar">
+ 	<a class="button button-icon ion-search" href="#/app/pesquisarAviso"><strong>Pesquisar</strong></a>
+ 	<a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> <strong>Meus Avisos</strong></a>
+ 	</div>
 		
-		<!--<div class="button-bar">
+		<!--<div class="title"><a class="button button-icon ion-search" href="#/app/pesquisarAviso"> Pesquisar</a><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
+		
+		<div class="button-bar">
 	 <button class="button button-positive">Botão 1</button>
 	  <button class="button button-positive">Botão 2</button>
 	   <button class="button button-positive">Botão 3</button>
@@ -42,82 +49,3 @@
    
  </ion-view>
 
-
-
-  <!--
- <ion-view view-title="Mural Virtual">
-  
-  <ion-pane>
-   
-   <ion-header-bar class="bar-positive">
-	
-	  
-   </ion-header-bar>
-   
-  
-    
-	<ion-content class="padding">
-		<h2>Cadastro de Usuário</h2>
-		
-		<ion-list>
-		<form name="Add" id="add-new-form" method="post" action="">
-		<label class="item item-input item-floating-label">
-			<span class="input-label">E-mail</span>
-			<input type="text" name="login" placeholder="E-mail" id="login" ng-model="user.login">
-		 </label>
-		 
-		  <label class="item item-input item-floating-label">
-			<span class="input-label">Senha</span>
-			<input type="password" name="senha" placeholder="Senha" id="senha" ng-model="user.senha">
-			<input type="hidden" name="matricula">
-		 </label>
-		 	 
-		 
-		</ion-list>
-						
-		<ion-item class="item-input item-select padding">
-		 <div class="input-label">
-			Área de Conhecimento
-		 </div>
-		  <select ng-model="user.id_area">
-		    <option>Selecione...</option>
-			<option value="2">Humanas</option>
-			<option value="3">Exatas</option>
-			<option value="4">Pós-Graduação</option>
-			</select>
-
-		</ion-item>
-		
-			<ion-item class="item-input item-select padding">
-		 <div class="input-label">
-			TESTE
-		 </div>
-		  <select ng-repeat="student in students">>
-		   
-			<option>{{student.Name}}</option>
-			
-			
-			</select>
-
-		</ion-item>
-				
-		
-		<div>
-			<button class="button button-block button-positive" id="add-new-btn" ng-click="add_new(user)">
-				Cadastrar
-			</button>
-		</div>
-	</form>
-	</ion-content>
-	
-	
-	
-	
-	<ion-footer-bar class="bar-positive">
-		<div class="title">Unidade: Costa Azul</div>
-
-	</ion-footer-bar>
-
-	</ion-pane>
-</ion-view>
--->

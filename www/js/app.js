@@ -30,14 +30,14 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	
 	.state('app',{
 		url: '/app',
-		abstract:true,
+		abstract:false,
 		templateUrl:'templates/menu.html',
 		controller:'AppCtrl'
 		
 		
 	})
 	
-	.state('app.login',{
+	/*.state('app.login',{
 		
 		url: '/login',
 		views: {
@@ -47,9 +47,27 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
       }
     }
 		
+	})*/
+
+	.state('login',{
+		
+		url: '/login',
+		controller:'loginController',
+		templateUrl: 'templates/login.html'
+		
+
+       
+    })
+
+    .state('cadastro',{
+		url: '/cadastro',
+		controller:'cadastroController',
+        templateUrl: 'templates/cadastro.html'
+		
+		
 	})
 	
-	.state('app.cadastro',{
+	/*.state('app.cadastro',{
 		url: '/cadastro',
 		views: {
         'menuContent': {
@@ -58,7 +76,7 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 		}
 	}
 		
-	})
+	})*/
 	
 	.state('app.teste',{
 		url: '/teste',
@@ -124,8 +142,8 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 		
 	})
 		
-	//$urlRouterProvider.otherwise('/login');
-	$urlRouterProvider.otherwise('/app/login');
+	$urlRouterProvider.otherwise('/login');
+	//$urlRouterProvider.otherwise('/app/login');
 	
 });
 
