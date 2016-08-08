@@ -28,7 +28,7 @@
 		<div class="camada-login">
 		<ion-list class="list-inset">
 		
-		
+		<form action="" method="post">
 		<label class="item item-input item-login">
 		 <i class="icon ion-ios-email-outline placeholder-icon"></i>
 			<input type="text" class="placeLogin" name="login" placeholder="Email" id="login" ng-model="user.login">
@@ -62,16 +62,16 @@
 		</div>
 		
 		<div>
-			<button class="button button-block button-positive ion-android-done" ng-click="add_new(user)">
-				<strong>Entrar</strong>
+			<button class="button button-block button-positive ion-person-add" ng-click="add_new(user)">
+				<strong>Cadastrar</strong>
 			</button>
 		</div>
-	
+	</form>
 	</ion-content>
 	
 	<ion-footer-bar class="bar-positive">
 		<div class="button-bar">
-		<a class="button button-icon ion-person" href="#/login"> <span><strong>Já sou cadastrado!</strong></span></a>
+		<a class="button button-icon" href="#/login"> <span><strong>Já sou cadastrado!</strong></span></a>
 		</div>
 
 	<!--<div class="button-bar">
@@ -89,7 +89,6 @@
 .bar-header{
 	background-color: #4682B4 !important;
 	opacity: .9; 
-	font-weight:800;
 
 }
 

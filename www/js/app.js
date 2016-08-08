@@ -3,7 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','starter.controllers','service.api'])
+//angular.module('starter', ['ionic','starter.controllers','service.api'])
+angular.module('starter', ['ionic','starter.controllers'])
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -61,6 +63,7 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 
     .state('cadastro',{
 		url: '/cadastro',
+		cache: false,
 		controller:'cadastroController',
         templateUrl: 'templates/cadastro.html'
 		
@@ -90,8 +93,8 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	})
 	
 	.state('app.listarAviso',{
-		
 		url: '/listarAviso',
+		cache:false,
 		views: {
         'menuContent': {
         templateUrl: 'templates/listarAviso.html',
@@ -109,7 +112,7 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 		views: {
         'menuContent': {
         templateUrl: 'templates/listTeste.html',
-			//controller:'listarAvisoController'
+			
 			controller:'pesquisarAvisoController'
 		}
 	}
@@ -133,6 +136,7 @@ angular.module('starter', ['ionic','starter.controllers','service.api'])
 	.state('app.pesquisarAviso',{
 		
 		url: '/pesquisarAviso',
+		cache:false,
 		views: {
         'menuContent': {
 			templateUrl: 'templates/pesquisarAviso.html',

@@ -67,10 +67,8 @@ function filtroAviso(){
 	$stmt = $db->prepare("select i.id_informe,i.titulo,i.data_publicacao,i.turno,i.texto,ai.id_area,ar.descricao from area_informe ai 
 	inner join informe i on(i.id_informe = ai.id_informe) 
 	inner join areas ar on(ai.id_area = ar.id_area)
-	where ai.id_area = :id_area order by i.data_publicacao desc");
-
+	where DATE(i.data_publicacao) = :data and ai.id_area = :id_area  order by i.data_publicacao desc");
 	
-
 	try {
 	
 	$db = getConnection();
@@ -78,8 +76,10 @@ function filtroAviso(){
    
     $linha = 0;	
     $id_area = 0;	
-	 $stmt->bindParam("id_area",$app->id_area);
-	//$stmt->bindParam("senha",$app->senha_entrada);
+	
+	$stmt->bindParam("id_area",$app->id_area);
+	$data_form = date('Y-m-d',strtotime($app->data));
+	$stmt->bindParam("data",$data_form);
 	$stmt->execute();
 
 	//nova inclusao

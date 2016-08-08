@@ -1,13 +1,13 @@
 angular.module('starter.controllers', [])
 
 
-.controller('loginController', function($scope,$state,$http,$ionicPopup) {
+.controller('loginController', function($scope,$state,$http,$ionicPopup,$location) {
 	
     console.log("entrou no controller");
  $scope.btLogar = function(user){
  	console.log("entrou na acao");
 
-	var caminho = "http://localhost/api/api/index.php/";
+	var caminho = "http://localhost:8080/api/api/index.php/";
 	//$state.go('app.listarAviso');
 	//var login = user.login_entrada;
 	//var senha = user.senha_entrada;
@@ -22,16 +22,25 @@ angular.module('starter.controllers', [])
 		if(data>0){
 			localStorage.setItem('id_area',data);
 			$state.go('app.listarAviso');
+		}else{
+			
+			 var alert = $ionicPopup.alert({
+		    title: 'Acesso Negado!',
+		    template: 'Usuário não encontrado!'
+			});
+
+            alert.then(function(res) {
+				$location.path('login');
+            	//console.log("acesso existente");
+            	//console.log(res);
+            	 //e.preventDefault();
+         // Custom functionality....
+			});
+		
+		
 		}
 
-		/*else{
-			$ionicPopup.alert({
-		    title: 'Acesso Negado!',
-		    template: 'Login ou senha inválidos!'
-        });
-
-			$state.go('app.login');
-		}*/
+		
 		
       }).
       error(function(data, status, headers, config) {
@@ -71,8 +80,16 @@ angular.module('starter.controllers', [])
 })
 
 //Controller para cadastro do aluno
-.controller('cadastroController',function($scope,$ionicPopup,$state,$http,$timeout,$location){
-    var caminho = "http://localhost/api/api/index.php/";
+.controller('cadastroController',function($scope,$ionicHistory,$ionicPopup,$state,$http,$timeout,$location){
+	//$state.reload();
+	
+    $ionicHistory.clearHistory();
+	
+	localStorage.setItem('testeVar',100);
+	console.log(localStorage.getItem('testeVar'));
+	
+	
+    var caminho = "http://localhost:8080/api/api/index.php/";
 	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
 	$http.get(caminho+'listArea').success( function(data) {
 	$scope.areas = data;
@@ -83,7 +100,9 @@ angular.module('starter.controllers', [])
   	
 	//Ação de Cadastrar
 	$scope.add_new = function(user) {
-
+		
+		console.log(localStorage.getItem('testeVar'));
+		
         //alert('teste');
 		var parameter = JSON.stringify(user);
 		//alert(parameter);
@@ -91,29 +110,38 @@ angular.module('starter.controllers', [])
 		//alert('teste');
 		
 		//VERIFICA SE O USUÁRIO JÁ EXISTE
-	    var caminho = "http://localhost/api/api/index.php/";
+	    var caminho = "http://localhost:8080/api/api/index.php/";
 		$http.post(caminho+'validarUser', parameter).
-        success(function(data, status, headers, config) {
-       
-		if(data>0){
+        success(function(datax, status, headers, config) {
 		
-			console.log("usuário existente");
-             
+		localStorage.setItem('codigo_user',datax);
+		
+		console.log("RETORNO DATA VALIDAÇÃO DATA =  "+localStorage.getItem('codigo_user'));
+		console.log("RETORNO DATA VALIDAÇÃO DATAX =  "+localStorage.getItem('codigo_user'));
+		
+		//console.log("INICIO:"+localStorage.getItem('codigo_user'));
+       
+		
+		if(datax>0){
+			console.log("IF USUÁRIO EXISTENTE, VALOR DO DATA = "+datax)
+				
+			             
             var alert = $ionicPopup.alert({
 		    title: 'Usuário Já existente!',
 		    template: 'Aluno já possui cadastro!'
-        });
+			});
 
             alert.then(function(res) {
-            	console.log("acesso existente");
-            	console.log(res);
+				$location.path('login');
+            	//console.log("acesso existente");
+            	//console.log(res);
             	 //e.preventDefault();
          // Custom functionality....
-      });
+			});
+			
 	     // $location.path('login');
-	      $state.go('login');
-		
-		 
+	      //$state.go('login');
+				 
 		}
 		
       }).
@@ -124,12 +152,14 @@ angular.module('starter.controllers', [])
       });
 		
 		//FINAL VERIFICAÇÃO USER LOGIN
-		
-		
-		
+	console.log(localStorage.getItem('testeVar'));	
+	console.log("VALOR SESSÃO = "+localStorage.getItem('codigo_user'));
+	//console.log("ENTRADA DO ADD:"+localStorage.getItem('codigo_user'));
+	if(localStorage.getItem('codigo_user')==0){	
+	
 	//var parameter = JSON.stringify({type:"user", username:user_email, password:user_password});
     //OBS: LEMBRAR DE ALTERAR A URL NA CAP
-    var caminho = "http://localhost/api/api/index.php/";
+    var caminho = "http://localhost:8080/api/api/index.php/";
 	$http.post(caminho+'add', parameter).
     success(function(data, status, headers, config) {
 		console.log("sucesso");
@@ -145,29 +175,28 @@ angular.module('starter.controllers', [])
 		title: 'Cadastro confirmado!',
 		template: 'Bem vindo, favor logar'
       });
-	  
-	  $state.go('login');
 	
+	
+	}
 	  
-	  
-	  /*$timeout(function() {
-         $state.go('app.login');
-     }, 3000);*/
-
- 
+	  $ionicHistory.clearHistory();
+	  $location.path('login');
+	  //$state.go('login');
+	
+			   
 }
-
 	
 	$scope.selectAction = function() {
      console.log($scope.myOption);
 	};
 	
 	
+		
 })
 
 //Visualizar Aviso
 .controller('visualizarAvisoController', function($scope,$state,$http){
-	var caminho = "http://localhost/api/api/index.php/";
+	var caminho = "http://localhost:8080/api/api/index.php/";
 	var id_informe = $state.params.id_informe;
 	
 	$http.get(caminho+'detalheInforme?id_informe='+id_informe).success(function(data){
@@ -185,7 +214,7 @@ angular.module('starter.controllers', [])
 
 
 	//Lista area de conhecimento OBS: LEMBRAR DE ALTERAR A URL NA CAP, EM CASA É DIFERENTE O ENDEREÇO
-	var caminho = "http://localhost/api/api/index.php/";
+	var caminho = "http://localhost:8080/api/api/index.php/";
 	$http.get(caminho+'listArea').success( function(data) {
 	$scope.areas = data;
 	})
@@ -204,7 +233,7 @@ angular.module('starter.controllers', [])
 		
 		console.log(parameter);
 		
-		var caminho = "http://localhost/api/api/index.php/";
+		var caminho = "http://localhost:8080/api/api/index.php/";
 		$http.post(caminho+'pesquisarAviso', parameter).
         success(function(data, status, headers, config) {
        
@@ -232,7 +261,7 @@ angular.module('starter.controllers', [])
 .controller('listarAvisoController', function($scope,$state,$http){
 	//var id_area = 5;
 	var id_area = localStorage.getItem('id_area');
-	var caminho = "http://localhost/api/api/index.php/";
+	var caminho = "http://localhost:8080/api/api/index.php/";
 	$http.get(caminho+'getInformeAluno?id_area='+id_area).success(function(data){
 		$scope.informes = data;
 	})
