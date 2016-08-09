@@ -1,114 +1,57 @@
- <ion-view view-title="Pesquisar Avisos">>
-     <ion-pane>
-   
-   <ion-header-bar class="bar-positive">
-	<button class="button button-icon icon ion-navicon"></button>
-	<h1 class="title">Mural Virtual</h1>
-	<!--<button class="button button-icon ion-android-arrow-back" ng-click="btPesquisarAviso()"></button>-->
-   </ion-header-bar>
-   
-   
-      
-	<ion-content class="padding">
-		<!--<h5>Informe Data e Area de Conhecimento.</h5>-
-		<div class="item item-divider">
-			 Resultado da Busca
-		</div>-->
-		
-		<ion-list>
-      <!--<form method="post" action="">-->
-	
-	<form ng-submit="submit()">
-		<!--<label class="item item-input item-floating-label">
-			<span class="input-label">Data</span>
-			<input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
-			
-		 </label>-->
+ <ion-view view-title="Filtrar Aviso">
+  	<ion-pane>
+    
+     	<ion-content class="padding">
+     			<ion-list>
+    
+				<form ng-submit="submit()">
+			     	<label class="item item-input item-stacked-label">
+				  	<span class="input-label">Data</span>
+				  	<input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
+			 	   </label>
 
-		 <label class="item item-input item-stacked-label">
-		  <span class="input-label">Data</span>
-		  <input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
-		 </label>
-		 
+					<ion-item class="item-input item-select padding">
+						<div class="input-label">
+							Área de Ensino
+						</div>
+						<select ng-model="data.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
+					</ion-item>
+
 		 		 
-	</ion-list>
+				</ion-list>
+
+				<div>
+					<button class="button button-block button-positive ion-search">
+						<strong>Buscar</strong>  <!--{{PreferredLanguage}}-->
+					</button>
+				</div>
+     	
+     		</form>
 
 
-			
-		<ion-item class="item-input item-select padding">
-		 <div class="input-label">
-			Área de Ensino
-		 </div>
-		
-			
-			 <select ng-model="data.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
+     		<div class="item item-divider">
+				 Resultado da Busca
+			</div>
 
-		</ion-item>
+			<ion-list>
+			    <a href="#/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
+			    <i class="icon ion-ios-arrow-right"></i>
+			    <h2>{{informe.titulo}}</h2>
+				<p>{{informe.data_publicacao}}</p>
+				<span class="item-note">{{informe.descricao}}</span>
+				</a> 
+			</ion-list>
+     	
+    
+     	</ion-content>
 
-       
+		     <ion-footer-bar class="bar-positive">
+			 	<div class="button-bar">
+				 
+				 	<a class="button button-icon ion-ios-list-outline" href="#/listarAviso"> <strong>Meus Avisos</strong></a>
+			 	</div>
+			</ion-footer-bar>
 
-	
-		
-		 <!--<ion-list ng-repeat="area in areas">
-		 <ion-radio ng-model="aviso.id_area" ng-value="area.id_area">{{area.descricao}}</ion-radio>
-		 
-		</ion-list>-->
-		
-		
-		
-		<!--<ion-item class="item-input item-select padding">
-		<label class="item item-input item-floating-label">
-			<span class="input-label">ID</span>
-			<input type="text" name="id" id="id" ng-model="id"  ng-focus="focus=true" ng-blur="focus=false" ng-value="{{PreferredLanguage}}">
-		 </label>
-		</ion-item>-->
-		
-		<div>
-			<!--<button class="button button-block button-positive ion-search" ng-click="btPesquisarAviso(aviso)">-->
-			<button class="button button-block button-positive ion-search">
-				<strong>Pesquisar</strong>  <!--{{PreferredLanguage}}-->
-			</button>
-		</div>
+  	</ion-pane>
 
-
-		<div class="item item-divider">
-			 Resultado da Busca
-		</div>
-
-	<ion-list>
-		 <a href="#/app/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
-		 		 
-		  
-		  <!--<ion-item class="item-icon-left" ng-repeat="informe in informes track by informe.id_informe">-->
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>{{informe.titulo}}</h2>
-			<p>{{informe.data_publicacao}}</p>
-			<span class="item-note">{{informe.descricao}}</span>
-		<!--</ion-item>-->
-		  </a>
-		 
-		  
-		
-		  
-		</ion-list>
-	
-
-
-	</form>
-	</ion-content>
-	
-	<ion-footer-bar class="bar-positive">
-		<div class="button-bar">
- 			<a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"><strong>Meus Avisos</strong></a>
-		</div>
-
-   <!--<div class="title"><a class="button button-icon ion-ios-list-outline" href="#/app/listarAviso"> Meus Avisos</a></div>
-	<div class="button-bar">
-	 <button class="button button-positive">Botão 1</button>
-	  <button class="button button-positive">Botão 2</button>
-	   <button class="button button-positive">Botão 3</button>
-	</div>-->
-	</ion-footer-bar>
-
-	</ion-pane>
 </ion-view>

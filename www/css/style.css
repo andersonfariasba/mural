@@ -1,4 +1,108 @@
 /* Empty. Add your own CSS if you like */
-body{
-	auto;
+
+/*FINAL CSS LOGIN E CADASTRO*/
+
+.login-custom {
+	 background-color: #000;
+	 background-image: url(../img/fundo2.jpg);
+	 opacity: 1;
+	/*background-color:#368bd1;*/
+	background-size: cover;
+	background-position: center;
 }
+
+.list-login {
+	width: 90%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.item-login {
+	background: none;
+	border:none;
+	border-bottom: 2px solid #fff;
+
+}
+
+.item-login input {
+	font-size: 16px;
+	margin-left: 10px;
+	color: #fff;
+	font-weight:700; 
+}
+
+
+.item-login i {
+	color: #fff;
+	font-size: 25px;
+}
+
+.item-select {
+    height: 40px;
+    
+    margin-top:10px;  
+
+}
+
+.item-select select {
+    max-width: 90%;
+   
+}
+
+
+.placeLogin::-webkit-input-placeholder {
+   color:#fff;
+   font-weight:800; 
+}
+
+.titulo-login {
+	font-family: sans-serif;
+	color: #fff;
+	text-align: center;
+	font-size: 40px;
+	padding-top: 60px;
+
+}
+.sub-titulo-login {
+	font-family: sans-serif;
+	font-size: 18px;
+	position: absolute;
+	margin-top: 55px;
+	margin-left: -35px;
+}
+
+.camada_login{
+	margin-top:40px;
+}
+/*FINAL CSS LOGIN E CADASTRO*/
+
+
+
+/* ESTILO VALIDAÇÃO FORM */
+/** Styling for the username field **/
+label.item.has-error {  
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {  
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {  
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+/* FINAL ESTILO VALIDAÇÃO FORM */

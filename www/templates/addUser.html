@@ -1,0 +1,62 @@
+ <ion-view view-title="Novo Cadastro">
+   <ion-pane class="login-custom">
+   <ion-content  class="list-login padding">
+   <!--  <form name="myForm" angular-validator-submit="save(true)" novalidate autocomplete="off">-->
+     <h1 class="titulo-login">Mural<span class="sub-titulo-login">Virtual</span></h1>
+
+		<ion-list>
+			
+		<div class="camada_login">
+			
+			<label class="item item-input item-login">
+			 <i class="icon ion-ios-email-outline placeholder-icon"></i>
+				<input type="text" class="placeLogin" name="login" placeholder="Email" id="login" ng-model="user.login">
+			 </label>
+			 
+			  <label class="item item-input item-login">
+				
+				  <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+
+				<input type="password" class="placeLogin" name="senha_entrada" placeholder="Senha" id="senha" ng-model="user.senha">
+			 </label>
+
+			<ion-item class="item item-input item-select padding">
+			
+				<div class="input-label">
+				Área de Ensino
+				</div>
+			
+				<select ng-model="user.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
+			
+			</ion-item>
+		
+		</div>
+			
+			 
+		</ion-list>
+
+		<!--<div ng-messages="myForm.login_entrada.$error" role="alert">
+    		<div ng-message="required">Campo e-mail obrigatório.</div>
+  			  <div ng-message="email">Informe um e-mail valido.</div>
+    		<div ng-message="maxlength">O campo e-mail parece muito curto!</div>
+  		</div>-->
+
+		<div>
+			<button class="button button-block button-positive ion-checkmark-circled" ng-click="add_new(user)">
+				<strong>Cadastrar</strong>
+			</button>
+		</div>
+	
+    <!--</form>-->
+   </ion-content>
+
+   <ion-footer-bar class="bar-positive">
+		<div class="button-bar">
+		<a class="button button-icon" href="#/login"> <span><strong>Já sou cadastrado!</strong></span></a>
+		</div>
+
+	
+	</ion-footer-bar>
+ </ion-pane>
+
+</ion-view>

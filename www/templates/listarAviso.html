@@ -1,51 +1,29 @@
- <ion-view view-title="Lista de Avisos">
-  
-   <ion-pane>
-  
-   <ion-header-bar class="bar-positive">
-	<!--<button class="button button-icon icon ion-navicon"></button>-->
-	<h1 class="title">Mural Virtual</h1>
-	<button class="button button-icon ion-search" ng-click="btPesquisarAviso()"></button>
-   </ion-header-bar>
-   
-  
-    
-	<ion-content class="padding">
-	
-	 <!--<h1>Avisos</h1>-->
-		<ion-list>
-		 <a href="#/app/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
-		 		 
-		  
-		  <!--<ion-item class="item-icon-left" ng-repeat="informe in informes track by informe.id_informe">-->
-		   <i class="icon ion-ios-arrow-right"></i>
-		    <h2>{{informe.titulo}}</h2>
-			<p>{{informe.data_publicacao}}</p>
-			<span class="item-note">{{informe.descricao}}</span>
-		<!--</ion-item>-->
-		  </a>
-		 
-		  
-		
-		  
-		</ion-list>
-	
-	</ion-content>
-	
-	<ion-footer-bar class="bar-positive">
-		<div class="button-bar">
-          <a class="button button-icon ion-search" href="#/app/pesquisarAviso"><strong>Pesquisar</strong></a>
-		  
-			
-		</div>
-	
-	<!--<div class="title"><a class="button button-icon ion-search" href="#/app/pesquisarAviso"> Pesquisar</a></div>
-		<div class="button-bar">
-	 <button class="button button-positive">Botão 1</button>
-	  <button class="button button-positive">Botão 2</button>
-	   <button class="button button-positive">Botão 3</button>
-	</div>-->
-	</ion-footer-bar>
+<ion-view view-title="Novo Usuário">
 
-	</ion-pane>
+   <ion-pane>
+
+   		<ion-content class="padding">
+
+	   		<ion-list>
+			 
+				 <a href="#/visualizarAviso/{{informe.id_informe}}" class="item item-icon-left" ng-repeat="informe in informes track by informe.id_informe">
+				    <i class="icon ion-ios-arrow-right"></i>
+				    <h2>{{informe.titulo}}</h2>
+					<p>{{informe.data_publicacao}}</p>
+					<span class="item-note">{{informe.descricao}}</span>
+				</a>
+			 
+			</ion-list>
+
+		</ion-content>
+
+		
+		<ion-footer-bar class="bar-positive">
+			<div class="button-bar">
+		          <a class="button button-icon ion-search" href="#/pesquisarAviso"></a>
+			</div>
+		</ion-footer-bar>
+
+   </ion-pane>
+
 </ion-view>
