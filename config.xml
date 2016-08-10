@@ -7,8 +7,16 @@
   <author email="andersonjfarias@yahoo.com.br" href="http://yahoo.com.br/">
       Anderson Farias
     </author>
+  <plugin name="cordova-plugin-whitelist" version="1.2.0" />
   <content src="index.html"/>
-  <access origin="*"/>
+  <!--<access origin="*"/>
+  <allow-navigation href="*" />
+  <allow-intent href="*" />-->
+  
+<access origin="https://vellore.com.br/*" />
+<allow-navigation href="https://vellore.com.br/*" />
+<allow-intent href="https://vellore.com.br/*" /> 
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

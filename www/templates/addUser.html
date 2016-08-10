@@ -20,7 +20,9 @@
 				<input type="password" class="placeLogin" name="senha_entrada" placeholder="Senha" id="senha" ng-model="user.senha">
 			 </label>
 
-			<ion-item class="item item-input item-select padding">
+			<button class="button button-block button-positive ion-edit" ng-click="showPopup(user)" ><strong> Área de Ensino</strong></button>
+
+			<!--<ion-item class="item item-input item-select padding">
 			
 				<div class="input-label">
 				Área de Ensino
@@ -28,7 +30,7 @@
 			
 				<select ng-model="user.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 			
-			</ion-item>
+			</ion-item>-->
 		
 		</div>
 			

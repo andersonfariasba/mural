@@ -3,7 +3,21 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic','ngMessages'])
+//var app = angular.module('starter', ['ionic','ngMessages'])
+
+var app = angular.module('starter', ['ionic'])
+
+
+//configuração api
+/*
+.config(['$httpProvider', function($httpProvider) {
+
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];  
+    }
+])
+*/
+//final configuração
 
 app.config(function($stateProvider,$urlRouterProvider){
 
@@ -58,7 +72,7 @@ app.controller('loginCtrl',function($scope,$http,$state,$window,$location,$ionic
   $scope.btLogar = function(user){
     var parameter = JSON.stringify(user);
     //console.log(parameter);
-    $http.post('http://localhost:8080/api/api/index.php/login',parameter).success(function(data,status,headers,config){
+    $http.post('https://vellore.com.br/api/api/index.php/login',parameter).success(function(data,status,headers,config){
       //console.log(data);
       $window.localStorage.setItem('id_area', data);
        //Caso o retorno seja maior que zero, está autenticado
@@ -93,7 +107,7 @@ app.controller('loginCtrl',function($scope,$http,$state,$window,$location,$ionic
 app.controller('listarAvisoCtrl',function($scope,$state,$http,$window,$location){
 
   var id_area = $window.localStorage.getItem('id_area');
-  $http.get('http://localhost:8080/api/api/index.php/getInformeAluno?id_area='+id_area).
+  $http.get('https://vellore.com.br/api/api/index.php/getInformeAluno?id_area='+id_area).
   success(function(data){
     $scope.informes = data;
   });
@@ -104,7 +118,7 @@ app.controller('listarAvisoCtrl',function($scope,$state,$http,$window,$location)
 app.controller('visualizarAvisoCtrl',function($scope,$state,$http){
   var id_informe = $state.params.id_informe;
 
-  $http.get('http://localhost:8080/api/api/index.php/detalheInforme?id_informe='+id_informe).success(function(data){
+  $http.get('https://vellore.com.br/api/api/index.php/detalheInforme?id_informe='+id_informe).success(function(data){
     $scope.informes = data;
   }); 
 
@@ -114,7 +128,7 @@ app.controller('visualizarAvisoCtrl',function($scope,$state,$http){
 //FILTRAR AVISO
 app.controller('pesquisarAvisoCtrl',function($scope,$state,$http){
 
-  $http.get('http://localhost:8080/api/api/index.php/listArea').
+  $http.get('https://vellore.com.br/api/api/index.php/listArea').
     success(function(data){
       $scope.areas = data;
     })
@@ -122,7 +136,7 @@ app.controller('pesquisarAvisoCtrl',function($scope,$state,$http){
     $scope.data = {};
     $scope.submit = function(){
       var parameter = JSON.stringify($scope.data);
-      $http.post('http://localhost:8080/api/api/index.php/pesquisarAviso',parameter).
+      $http.post('http://vellore.com.br/api/api/index.php/pesquisarAviso',parameter).
       success(function(data,status,headers,config){
         $scope.informes = data;
       });
@@ -138,10 +152,32 @@ app.controller('pesquisarAvisoCtrl',function($scope,$state,$http){
 app.controller('addUserCtrl',function($scope,$http,$state,$window,$ionicPopup,$location){
 
    //LISTA AREAS DE ENSINO
-  $http.get('http://localhost:8080/api/api/index.php/listArea').success(function(data){
+  $http.get('https://vellore.com.br/api/api/index.php/listArea').success(function(data){
     $scope.areas = data;
     console.log(data);
   });
+
+  //MOSTRAR RADIO DE AREAS
+  $scope.showPopup = function(user) {
+    $scope.data = {};
+  $ionicPopup.show({
+    templateUrl: 'templates/areas_ensino.html',
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel' },
+      {
+        text: '<b>OK</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          //console.log(user.id_area);
+        }
+      }
+    ]
+  });
+  }
+  //FINAL AREAS DE RADIOS
+
+
 
   //EVENTO AO CLICAR NO BOTÃO
   $scope.add_new = function(user) {
@@ -160,7 +196,7 @@ if(user.login==null){
 }
   
 
-   $http.post('http://localhost:8080/api/api/index.php/validarUser',parameter).success(function(retorno,status,headers,config){
+   $http.post('https://vellore.com.br/api/api/index.php/validarUser',parameter).success(function(retorno,status,headers,config){
        //localStorage.setItem('valor',retorno);
       // $window.localStorage.setItem('codigo', retorno);
       // if($window.localStorage.getItem('codigo')==0){
@@ -170,7 +206,7 @@ if(user.login==null){
             
             //INICIO CADASTRO
 
-              $http.post('http://localhost:8080/api/api/index.php/add', parameter).
+              $http.post('http://vellore.com.br/api/api/index.php/add', parameter).
                   success(function(data, status, headers, config) {
 
                     var alert = $ionicPopup.alert({
