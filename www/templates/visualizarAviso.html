@@ -1,13 +1,18 @@
  <ion-view view-title="Exibir Aviso">
-    <ion-pane>
+    <ion-pane class="login-custom">
     
-     <ion-content class="padding">
+     <ion-content>
      	<div class="list card" ng-repeat="informe in informes track by informe.id_informe">
 
+     	  <div class="item item-divider">
+				 <h2>{{informe.titulo}}</h2>
+			</div>
+
 	  		<div class="item item-body"> 
-		    <h2>{{informe.titulo}}</h2>
-		    <h6>{{informe.data_publicacao}}</h6>
+		   
+		     <span class="item-note">{{informe.data_publicacao}}</span>
 		    <p>{{informe.texto}}</p>
+
 		 	</div>
 
 		</div>
@@ -15,8 +20,8 @@
      </ion-content>
 
       <ion-footer-bar class="bar-positive">
-	 	<div class="button-bar">
-		 	<a class="button button-icon ion-search" href="#/pesquisarAviso"><strong>Pesquisar</strong></a>
+	 	<div class="button-bar txt-rodape">
+		 	<!--<a class="button button-icon ion-search" href="#/pesquisarAviso"><strong>Pesquisar</strong></a>-->
 		 	<a class="button button-icon ion-ios-list-outline" href="#/listarAviso"> <strong>Meus Avisos</strong></a>
 	 	</div>
 	</ion-footer-bar>

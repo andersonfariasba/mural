@@ -2,7 +2,9 @@
    <ion-pane class="login-custom">
    <ion-content  class="list-login padding">
    <!--  <form name="myForm" angular-validator-submit="save(true)" novalidate autocomplete="off">-->
-     <h1 class="titulo-login">Mural<span class="sub-titulo-login">Virtual</span></h1>
+     <!--<h1 class="titulo-login">Mural<span class="sub-titulo-login">Virtual</span></h1>-->
+     <h1 class="titulo-login"><img src="img/logo.png" width="150px"><span class="sub-titulo-login">Mural Virtual - Costa Azul</span></h1>
+
 
 		<ion-list>
 			
@@ -20,18 +22,20 @@
 				<input type="password" class="placeLogin" name="senha_entrada" placeholder="Senha" id="senha" ng-model="user.senha">
 			 </label>
 
-			<button class="button button-block button-positive ion-edit" ng-click="showPopup(user)" ><strong> Área de Ensino</strong></button>
+			<!--<button class="button button-block button-positive ion-edit" ng-click="showPopup(user)" ><strong> Área de Ensino</strong></button>-->
 
-			<!--<ion-item class="item item-input item-select padding">
+		 
+		 <ion-item class="item item-input item-select padding">
 			
-				<div class="input-label">
-				Área de Ensino
+				<div class="input-label titulo-area">
+				    Área
 				</div>
 			
 				<select ng-model="user.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 			
-			</ion-item>-->
-		
+			</ion-item>
+
+
 		</div>
 			
 			 
@@ -43,8 +47,8 @@
     		<div ng-message="maxlength">O campo e-mail parece muito curto!</div>
   		</div>-->
 
-		<div>
-			<button class="button button-block button-positive ion-checkmark-circled" ng-click="add_new(user)">
+			<div>
+			<button ng-disabled="!user.login || !user.senha || !user.id_area" class="button button-block button-balanced ion-checkmark-circled" ng-click="add_new(user)">
 				<strong>Cadastrar</strong>
 			</button>
 		</div>

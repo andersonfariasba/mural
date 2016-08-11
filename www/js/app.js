@@ -9,14 +9,14 @@ var app = angular.module('starter', ['ionic'])
 
 
 //configuração api
-/*
-.config(['$httpProvider', function($httpProvider) {
+
+app.config(['$httpProvider', function($httpProvider) {
 
         $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];  
-    }
+        delete $httpProvider.defaults.headers.common['X-Requested-With']; 
+      }
 ])
-*/
+
 //final configuração
 
 app.config(function($stateProvider,$urlRouterProvider){
@@ -104,7 +104,9 @@ app.controller('loginCtrl',function($scope,$http,$state,$window,$location,$ionic
 
 
 //LISTA OS AVISOS POR AREA DO ALUNO, BASEADO NO LOGIN
-app.controller('listarAvisoCtrl',function($scope,$state,$http,$window,$location){
+app.controller('listarAvisoCtrl',function($scope,$state,$http,$window,$location,$ionicSideMenuDelegate){
+
+   $ionicSideMenuDelegate.canDragContent(true);
 
   var id_area = $window.localStorage.getItem('id_area');
   $http.get('https://vellore.com.br/api/api/index.php/getInformeAluno?id_area='+id_area).

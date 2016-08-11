@@ -1,27 +1,37 @@
  <ion-view view-title="Filtrar Aviso">
-  	<ion-pane>
+  	<ion-pane class="login-custom">
     
      	<ion-content class="padding">
      			<ion-list>
     
 				<form ng-submit="submit()">
-			     	<label class="item item-input item-stacked-label">
-				  	<span class="input-label">Data</span>
-				  	<input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
-			 	   </label>
 
-					<ion-item class="item-input item-select padding">
+				   <div class="list">
+  <label class="item item-input">
+    <span class="input-label">Data</span>
+    <input type="date" name="data" placeholder="Data" id="data" ng-model="data.data">
+			 	  
+  </label>
+
+  <ion-item class="item-input item-select padding">
 						<div class="input-label">
 							Área de Ensino
 						</div>
 						<select ng-model="data.id_area" ng-options="obj.id_area as obj.descricao for obj in areas"></select>
 					</ion-item>
+  
+
+
+</div>
+			     
+
+					
 
 		 		 
 				</ion-list>
 
 				<div>
-					<button class="button button-block button-positive ion-search">
+					<button class="button button-block button-balanced ion-search">
 						<strong>Buscar</strong>  <!--{{PreferredLanguage}}-->
 					</button>
 				</div>
